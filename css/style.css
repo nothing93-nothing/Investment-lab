@@ -131,10 +131,15 @@ body {
 /* Main Layout Container */
 .prediction-container {
     background: #2a2a2a;
-    border-radius: 12px;
+    border-radius: 24px;
     width: 100%;
-    max-width: 650px;
-    margin: 180px auto 40px auto; /* Margin-top adjusted to sit below your ticker belt */
+    max-width: 450px;
+
+    position: relative;
+    margin-top: 220px;
+    margin-left: 50px;
+    margin-bottom: 50px;
+
     box-shadow: 0 8px 32px rgba(0,0,0,0.3);
     overflow: hidden;
     font-family: sans-serif;
