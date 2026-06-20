@@ -53,4 +53,24 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
         console.error("Could not find an element with id='dynamic-track' in the HTML.");
     }
+
+    //3. PREDICTION FACTORS
+    const tabs = document.querySelectorAll('.tab-btn');
+    const panels = document.querySelectorAll('.tab-panel');
+
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            const targetId = tab.getAttribute('data-target');
+
+            // 1. Remove active states from all buttons
+            tabs.forEach(t => t.classList.remove('active'));
+            // 2. Hide all content panels
+            panels.forEach(p => p.classList.remove('active'));
+
+            // 3. Set active classes for clicked item
+            tab.classList.add('active');
+            document.getElementById(targetId).classList.add('active');
+        });
+    });
 });
+
