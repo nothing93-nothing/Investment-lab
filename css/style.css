@@ -9,7 +9,7 @@ body {
 /* --- TIME HEADER SETTING --- */
 .datetime-container {
     position: fixed;
-    top: 20px;
+    top: 25px;
     left: 0;
     width: 100%;
     display: flex;
