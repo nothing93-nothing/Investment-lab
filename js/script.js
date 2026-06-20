@@ -7,7 +7,7 @@ function updateLiveDateTime() {
         year: 'numeric',
         month: 'long',
         day: 'numeric'
-    }
+    };
     const formattedDate = now.toLocaleDateString('en-US', dateOptions);
 
     const timeOptions = {
@@ -18,39 +18,39 @@ function updateLiveDateTime() {
     };
     const formattedTime = now.toLocaleTimeString('en-US', timeOptions);
 
-    document.getElementById('current-date').textContent = formattedDate
-    document.getElementById('current-time').textContent = formattedTime
+    // Dynamic checks for your IDs
+    const dateElement = document.getElementById('current-date');
+    const timeElement = document.getElementById('current-time') || document.getElementById('live-clock');
+
+    if (dateElement) dateElement.textContent = formattedDate;
+    if (timeElement) timeElement.textContent = formattedTime;
 }
-
-
-
 
 // --- EVENT LISTENER ---
 document.addEventListener("DOMContentLoaded", () => {
 
-
-    //INDICES CONVEYOR BELT
-    const track = document.getElementById("dynamic-track");
-    if (!track) return;
-
-    // 1. Get your initial list of cards
-    const originalCards = Array.from(track.children);
-    if (originalCards.length === 0) return;
-
-    // 2. We automatically clone the items multiple times
-    // to ensure the conveyor belt is way wider than any monitor screen.
-    const cloneCount = 4;
-    for (let i = 0; i < cloneCount; i++) {
-        originalCards.forEach(card => {
-            const clone = card.cloneNode(true);
-            track.appendChild(clone);
-        });
-    }
-
-
-    //CURRENT DATE AND TIME
+    // 1. EXECUTE THE CLOCK LOOP FIRST
     updateLiveDateTime();
     setInterval(updateLiveDateTime, 1000);
 
+    // 2. INDICES CONVEYOR BELT (Safe, non-blocking layout construction)
+    const track = document.getElementById("dynamic-track");
+    if (track) {
+        const originalCards = Array.from(track.children);
 
+        // Use an IF block instead of a return statement so it doesn't break other features
+        if (originalCards.length > 0) {
+            const cloneCount = 4;
+            for (let i = 0; i < cloneCount; i++) {
+                originalCards.forEach(card => {
+                    const clone = card.cloneNode(true);
+                    track.appendChild(clone);
+                });
+            }
+        } else {
+            console.warn("Ticker track found, but it has no card children to clone!");
+        }
+    } else {
+        console.error("Could not find an element with id='dynamic-track' in the HTML.");
+    }
 });
