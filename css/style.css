@@ -175,8 +175,9 @@ body {
 
 /* Body Content Styling */
 .tab-body {
-    padding: 24px;
+    padding: 30px 24px 24px 24px;
     color: #ffffff;
+    clear: both;
 }
 
 /* Hide all panels by default */
@@ -189,18 +190,20 @@ body {
     display: block;
 }
 
-.tab-body h3 {
-    margin-top: 0;
-    margin-bottom: 20px;
-    font-size: 1.2rem;
+.tab-panel h3 {
+    margin-top: 5px;             /* Adds a safe buffer above the header text */
+    margin-bottom: 25px;         /* Pushes the data rows further down */
+    font-size: 1.3rem;
     color: #aaaaaa;
+    display: block;              /* Forces it to respect block level spacing rules */
 }
 
 /* Data Layout Rows */
 .data-row {
     display: flex;
     justify-content: space-between;
-    padding: 12px 0;
+    align-items: center;         /* Perfectly vertically aligns text and badges */
+    padding: 16px 0;             /* Increases spacing between individual stock metrics */
     border-bottom: 1px solid #3a3a3a;
 }
 .data-row:last-child {
