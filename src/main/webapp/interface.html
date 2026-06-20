@@ -1,10 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Investment lab</title>
+    <link rel="stylesheet" href="css/style.css"> <!--- LINK STYLE.CSS --->
 </head>
+
 <body>
-$END$
+
+    <table>
+        <div class="datetime-container">
+            <div class="date-text" id="current-date">Loading date...</div>
+            <div class="time-separator">|</div> <div class="time-text" id="current-time">Loading time...</div>
+        </div>
+    </table>
+
+    <div class="ticker-wrap">
+        <div class="ticker-track" id="dynamic-track">
+
+            <!--- US market --->
+            <div class="region-card">
+                <span class="region-symbol">US market</span>
+            </div>
+                <div class="ticker-card">
+                    <span class="ticker-symbol">S&P 500</span>
+                    <span class="ticker-price">$185.92</span>
+                    <span class="ticker-change up">+1.2%</span>
+                </div>
+                <div class="ticker-card">
+                    <span class="ticker-symbol">DJI</span>
+                    <span class="ticker-price">$174.50</span>
+                    <span class="ticker-change down">-2.4%</span>
+                </div>
+                <div class="ticker-card">
+                    <span class="ticker-symbol">NASDAQ</span>
+                    <span class="ticker-price">$875.12</span>
+                    <span class="ticker-change up">+4.8%</span>
+                </div>
+                <div class="ticker-card">
+                    <span class="ticker-symbol">RUSSEL 2000</span>
+                    <span class="ticker-price">$420.30</span>
+                    <span class="ticker-change up">+0.5%</span>
+                </div>
+
+            <!--- Asia market --->
+            <div class="region-card">
+                <span class="region-symbol">Asia market</span>
+            </div>
+                <div class="ticker-card">
+                    <span class="ticker-symbol">HSI</span>
+                    <span class="ticker-price">$175.20</span>
+                    <span class="ticker-change down">-1.1%</span>
+                </div>
+                <div class="ticker-card">
+                    <span class="ticker-symbol">N225</span>
+                    <span class="ticker-price">$245.60</span>
+                    <span class="ticker-change up">+3.2%</span>
+                </div>
+                <div class="ticker-card">
+                    <span class="ticker-symbol">CSI 300</span>
+                    <span class="ticker-price">$245.60</span>
+                    <span class="ticker-change up">+3.2%</span>
+                </div>
+                <div class="ticker-card">
+                    <span class="ticker-symbol">KOSPI</span>
+                    <span class="ticker-price">$245.60</span>
+                    <span class="ticker-change up">+3.2%</span>
+                </div>
+
+            <!--- Europe market --->
+            <div class="region-card">
+                <span class="region-symbol">Europe market</span>
+            </div>
+                <div class="ticker-card">
+                    <span class="ticker-symbol">FTSE 100</span>
+                    <span class="ticker-price">$7,450.20</span>
+                    <span class="ticker-change down">-1.8%</span>
+                </div>
+                <div class="ticker-card">
+                    <span class="ticker-symbol">DAX</span>
+                    <span class="ticker-price">$14,250.60</span>
+                    <span class="ticker-change up">+2.1%</span>
+                </div>
+                <div class="ticker-card">
+                    <span class="ticker-symbol">CAC 40</span>
+                    <span class="ticker-price">$5,670.80</span>
+                    <span class="ticker-change up">+1.5%</span>
+                </div>
+
+        </div>
+    </div>
+
+    <!--- LINK SCRIPT.JS --->
+    <script src="js/script.js"></script>
+
 </body>
+
 </html>

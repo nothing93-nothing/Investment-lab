@@ -1,0 +1,126 @@
+/* --- BACKGROUND COLOR --- */
+body {
+    background-color: rgba(47, 51, 64, 1);
+}
+
+
+
+
+/* --- TIME HEADER SETTING --- */
+.datetime-container {
+    position: fixed;
+    top: 20px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+    gap: 30px;
+}
+
+
+.time-separator {
+    font-size: 3rem;
+    color: #666666;
+}
+
+
+.date-text {
+    font-size: 3rem;
+    color: #666666;
+}
+
+.time-text {
+    font-size: 3rem;
+    color: #666666;
+}
+
+
+
+
+/* --- CONVEYOR BELT --- */
+/* The Window: Hides cards outside the screen */
+.ticker-wrap {
+    position: fixed;
+    top: 100px; /* Floats at the top */
+    left: 0;
+    width: 100%;
+    overflow: hidden; /* Crucial: hides the overflow */
+    background: rgba(0, 0, 30, 0.2);
+    box-shadow: 0 -5px 20px rgba(0,0,0,0.4);
+    padding: 10px 0;
+    z-index: 9999;
+    backdrop-filter: blur(5px); /* Modern frosted-glass look */
+
+}
+
+/* The Track: Must be forced into a single, un-shrinkable row */
+.ticker-track {
+    display: flex;
+    width: max-content; /* Dynamically sizes to fit all cards side-by-side */
+    flex-shrink: 0;     /* Prevents the track from squeezing inside the wrapper */
+    gap: 20px;          /* Clean spacing between cards instead of margins */
+    animation: scrollTicker 90s linear infinite;
+}
+
+/* The Cards: Must maintain their size */
+.ticker-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #9395a8;
+    padding: 10px 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    font-family: sans-serif;
+    font-size: 0.9rem;
+    flex-shrink: 0; /* CRUCIAL: Stops the browser from altering card widths */
+    white-space: nowrap; /* Keeps text on a single line inside the card */
+}
+
+.region-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #b8860b;
+    padding: 10px 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 2px rgba(0,0,0,0.1);
+    font-family: sans-serif;
+    font-size: 0.9rem;
+    flex-shrink: 0; /* CRUCIAL: Stops the browser from altering card widths */
+    white-space: nowrap; /* Keeps text on a single line inside the card */
+}
+
+/* The Animation Reset */
+/* Remove BOTH old @keyframes blocks from the bottom of your CSS and use this one: */
+@keyframes scrollTicker {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        /* With 5 identical sets in total, moving left by 20% shifts exactly
+           one complete set out of view, hiding the loop point cleanly */
+        transform: translateX(-20%);
+    }
+}
+
+.region-symbol { font-weight: bold; color: #fff}
+.ticker-symbol { font-weight: bold; color: #333; }
+.ticker-price { color: #666; }
+
+/* Dynamic colors for stock changes */
+.ticker-change.up { color: #00b060; font-weight: 600; }
+.ticker-change.down { color: #ff3b30; font-weight: 600; }
+
+/* THE MAGIC: Scroll exactly halfway (50%) then reset */
+@keyframes scrollTicker {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%); /* Moves left by exactly one full set of cards */
+    }
+}
